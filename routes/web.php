@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::GET('/penerbangan', 'PenerbanganController@index')->name('penerbangan.index');
+Route::GET('/penerbangan/getall', 'PenerbanganController@all');
+Route::GET('/penerbangan/getbyid', 'PenerbanganController@getById');
+Route::POST('/penerbangan/insert', 'PenerbanganController@insert');
+Route::POST('/penerbangan/update', 'PenerbanganController@update');
+Route::POST('/penerbangan/delete', 'PenerbanganController@delete');

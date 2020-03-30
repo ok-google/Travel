@@ -17,8 +17,7 @@ class CreatePaketDetailsTable extends Migration
             $table->id('id_paket_detail');
             $table->integer('id_paket');
             $table->integer('id_keberangkatan');
-            $table->integer('id_keberangkatan');
-            $table->boolean('aktif');
+            $table->boolean('status');
             $table->string('keterangan');
             ;
             //$table->timestamps();

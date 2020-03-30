@@ -4,28 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Penerbangan;
+use App\penerbangan;
 
-class PenerbanganController extends Controller
+class penerbanganController extends Controller
 {
     public function index()
     {
-        return view('Master.Penerbangan.index');
+        return view('Master.penerbangan.index');
     }
 
     public function all()
     {
-        $data = Penerbangan::all();
+        $data = penerbangan::all();
         return response()->json($data);
     }
 
-    public function GetById(Request $request)
+    public function getById(Request $request)
     {
-        $data = Penerbangan::where('id_penerbangan', $request->input('id_penerbangan'))->get();
+        $data = penerbangan::where('id_penerbangan', $request->input('id_penerbangan'))->get();
         return response()->json($data);
     }
 
-    public function Validation(Request $request)
+    public function validation(Request $request)
     {
         if(is_null($request->input('id_penerbangan'))){
             $id_penerbangan = '0';
@@ -34,26 +34,30 @@ class PenerbanganController extends Controller
         }
 
         $rules = [
+            'kode_penerbangan' => 'required|unique:penerbangan,kode_penerbangan,'.$id_penerbangan.',id_penerbangan',
             'nama_penerbangan' => 'required'
         ];
 
         $messages = [
-            'nama_penerbangan.required' => 'Nama Penerbangan harus di isi.'
+            'kode_penerbangan.unique' => 'Kode Penerbangan tidak boleh sama',
+            'kode_penerbangan.required' => 'Kode Penerbangan harus di isi',
+            'nama_penerbangan.required' => 'Nama penerbangan harus di isi.'
         ];
 
         $this->validate($request, $rules, $messages);
     }
 
-    public function Insert(Request $request)
+    public function insert(Request $request)
     {
-        $Penerbangan = new Penerbangan();
+        $penerbangan = new penerbangan();
 
         $this->validation($request);
-        $Penerbangan->nama_penerbangan = $request->input('nama_penerbangan');
-        $Penerbangan->Keterangan = (is_null($request->input('Keterangan')) ? "" : $request->input('Keterangan'));
-        $Penerbangan->Aktif = 1;
+        $penerbangan->kode_penerbangan = $request->input('kode_penerbangan');
+        $penerbangan->nama_penerbangan = $request->input('nama_penerbangan');
+        $penerbangan->Keterangan = (is_null($request->input('Keterangan')) ? "" : $request->input('Keterangan'));
+        $penerbangan->Aktif = $request->input('aktif');
 
-        $exec = $Penerbangan->save();
+        $exec = $penerbangan->save();
 
         if($exec)
             return response()->json('Berhasil Tambah Data', 200);
@@ -63,14 +67,15 @@ class PenerbanganController extends Controller
 
     public function update(Request $request)
     {
-        $Penerbangan = Penerbangan::find($request->input('id_penerbangan'));
+        $penerbangan = penerbangan::find($request->input('id_penerbangan'));
 
         $this->validation($request);
-        $Penerbangan->nama_penerbangan = $request->input('nama_penerbangan');
-        $Penerbangan->Keterangan = (is_null($request->input('Keterangan')) ? "" : $request->input('Keterangan'));
-        $Penerbangan->Aktif = 1;
+        $penerbangan->kode_penerbangan = $request->input('kode_penerbangan');
+        $penerbangan->nama_penerbangan = $request->input('nama_penerbangan');
+        $penerbangan->Keterangan = (is_null($request->input('Keterangan')) ? "" : $request->input('Keterangan'));
+        $penerbangan->Aktif = $request->input('aktif');
 
-        $exec = $Penerbangan->save();
+        $exec = $penerbangan->save();
 
         if($exec)
             return response()->json('Berhasil Update Data', 200);
@@ -80,9 +85,9 @@ class PenerbanganController extends Controller
 
     public function delete(Request $request)
     {
-        $Penerbangan = Penerbangan::find($request->input('id_penerbangan'));
+        $penerbangan = penerbangan::find($request->input('id_penerbangan'));
 
-        $exec = $Penerbangan->delete();
+        $exec = $penerbangan->delete();
 
         if($exec)
             return response()->json('Berhasil Hapus Data', 200);
