@@ -108,6 +108,9 @@
                         <li>
                             <a href="{{ route('penerbangan.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Penerbangan</span></a>
                         </li>
+                        <li>
+                            <a href="{{ route('hotel.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Hotel</span></a>
+                        </li>
 
                         <li class="nav-main-heading"><span class="sidebar-mini-visible">BD</span><span class="sidebar-mini-hidden">Transaksi</span></li>
                         <li>

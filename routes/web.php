@@ -19,3 +19,10 @@ Route::GET('/penerbangan/getbyid', 'PenerbanganController@getById');
 Route::POST('/penerbangan/insert', 'PenerbanganController@insert');
 Route::POST('/penerbangan/update', 'PenerbanganController@update');
 Route::POST('/penerbangan/delete', 'PenerbanganController@delete');
+
+Route::GET('/hotel', 'HotelController@index')->name('hotel.index');
+Route::GET('/hotel/getall', 'HotelController@all');
+Route::GET('/hotel/getbyid', 'HotelController@getById');
+Route::POST('/hotel/insert', 'HotelController@insert');
+Route::POST('/hotel/update', 'HotelController@update');
+Route::POST('/hotel/delete', 'HotelController@delete');
