@@ -14,8 +14,14 @@ class CreatePaketDetailsTable extends Migration
     public function up()
     {
         Schema::create('paket_detail', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id_paket_detail');
+            $table->integer('id_paket');
+            $table->integer('id_keberangkatan');
+            $table->integer('id_keberangkatan');
+            $table->boolean('aktif');
+            $table->string('keterangan');
+            ;
+            //$table->timestamps();
         });
     }
 
