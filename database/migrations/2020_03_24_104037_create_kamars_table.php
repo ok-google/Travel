@@ -19,6 +19,7 @@ class CreateKamarsTable extends Migration
             $table->string('kelas_kamar', 50);
             $table->integer('jml_bed');
             $table->decimal('harga', 20, 2);
+            $table->boolean('aktif');
             // $table->timestamps();
         });
     }

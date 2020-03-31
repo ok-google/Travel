@@ -35,8 +35,8 @@ class KeberangkatanController extends Controller
         }
 
         $rules = [
-            'tgl_berangkat' => 'required';
-            'tgl_pulang' => 'required';
+            'tgl_berangkat' => 'required',
+            'tgl_pulang' => 'required'
         ];
 
         $messages = [

@@ -26,6 +26,8 @@
 
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.css') }}">
     <link href="{{ asset('assets/js/plugins/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/css/select2.min.css') }}">
 </head>
 <body>
     <input type="hidden" name="uri" id="uri" value="{{ url('/') }}/">
@@ -110,6 +112,9 @@
                         </li>
                         <li>
                             <a href="{{ route('hotel.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Hotel</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('kamar.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Kamar</span></a>
                         </li>
 
                         <li class="nav-main-heading"><span class="sidebar-mini-visible">BD</span><span class="sidebar-mini-hidden">Transaksi</span></li>
@@ -259,6 +264,8 @@
     <script src="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/js/pages/be_tables_datatables.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/select2/js/select2.full.min.js') }}"></script>
 
     @yield('customJS')
 

@@ -12,7 +12,8 @@ class kamar extends Model
     protected $fillable = ['id_hotel',
                            'kelas_kamar',
                            'jml_bed',
-                           'harga'
+                           'harga',
+                           'aktif'
                         ];
     public $timestamps = false;
 

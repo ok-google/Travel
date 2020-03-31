@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\paket;
 
 class PaketController extends Controller
 {
@@ -32,13 +33,13 @@ class PaketController extends Controller
         }
 
         $rules = [
-        	'id_penerbangan' => 'required';
-        	'id_hotel' => 'required';
-        	'id_kamar' => 'required';
-        	'nama_paket' => 'required';
-        	'kategori_paket' => 'required';
-        	'harga' => 'required';
-        	'durasi' => 'required';
+        	'id_penerbangan' => 'required',
+        	'id_hotel' => 'required',
+        	'id_kamar' => 'required',
+        	'nama_paket' => 'required',
+        	'kategori_paket' => 'required',
+        	'harga' => 'required',
+        	'durasi' => 'required',
         ];
 
         $messages = [
@@ -48,7 +49,8 @@ class PaketController extends Controller
         	'nama_paket' => 'id kamar harus di isi',
         	'kategori_paket' => 'kategori paket harus di isi',
         	'harga' => 'harga harus di isi',
-        	'durasi' => 'durasi harus di isi'
+            'durasi' => 'durasi harus di isi'
+        ];
 
         $this->validate($request, $rules, $messages);
     }

@@ -18,6 +18,12 @@ class HotelController extends Controller
         return response()->json($data);
     }
 
+    public function selectAktif()
+    {
+        $data = hotel::where('aktif', 1)->get();
+        return response()->json($data);
+    }
+
     public function getById(Request $request)
     {
         $data = hotel::where('id_hotel', $request->input('id_hotel'))->get();
