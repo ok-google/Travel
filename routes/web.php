@@ -31,7 +31,15 @@ Route::POST('/hotel/delete', 'HotelController@delete');
 Route::GET('/kamar', 'KamarController@index')->name('kamar.index');
 Route::GET('/kamar/getall', 'KamarController@all');
 Route::GET('/kamar/getbyid', 'KamarController@getById');
-Route::GET('/kamar/browse', 'KamarController@selectAktif');
+Route::GET('/kamar/browse', 'KamarController@all');
 Route::POST('/kamar/insert', 'KamarController@insert');
 Route::POST('/kamar/update', 'KamarController@update');
 Route::POST('/kamar/delete', 'KamarController@delete');
+
+Route::GET('/keberangkatan', 'KeberangkatanController@index')->name('keberangkatan.index');
+Route::GET('/keberangkatan/getall', 'KeberangkatanController@all');
+Route::GET('/keberangkatan/getbyid', 'KeberangkatanController@getById');
+Route::GET('/keberangkatan/browse', 'KeberangkatanController@all');
+Route::POST('/keberangkatan/insert', 'KeberangkatanController@insert');
+Route::POST('/keberangkatan/update', 'KeberangkatanController@update');
+Route::POST('/keberangkatan/delete', 'KeberangkatanController@delete');

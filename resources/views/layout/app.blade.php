@@ -28,6 +28,7 @@
     <link href="{{ asset('assets/js/plugins/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/flatpickr/flatpickr.min.css') }}">
 </head>
 <body>
     <input type="hidden" name="uri" id="uri" value="{{ url('/') }}/">
@@ -109,6 +110,9 @@
                         <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Master</span></li>
                         <li>
                             <a href="{{ route('penerbangan.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Penerbangan</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('keberangkatan.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Keberangkatan</span></a>
                         </li>
                         <li>
                             <a href="{{ route('hotel.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Hotel</span></a>
@@ -266,7 +270,10 @@
     <script src="{{ asset('assets/js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/flatpickr/flatpickr.min.js') }}"></script>
 
     @yield('customJS')
+
+    <script>jQuery(function(){ Codebase.helpers(['flatpickr', 'datepicker']); });</script>
 
 </body></html>

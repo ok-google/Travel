@@ -16,13 +16,26 @@ class KeberangkatanController extends Controller
 
     public function all()
     {
-        $data = keberangkatan::all();
+        $data = keberangkatan::get()
+                ->map(function ($Keberangkatan) {
+                    $Keberangkatan->tgl_berangkat = date("d-m-Y", strtotime($Keberangkatan->tgl_berangkat));
+                    $Keberangkatan->tgl_pulang = date("d-m-Y", strtotime( $Keberangkatan->tgl_pulang));;
+
+                    return $Keberangkatan;
+                  });
+
         return response()->json($data);
     }
 
     public function GetById(Request $request)
     {
-        $data = keberangkatan::where('id_keberangkatan', $request->input('id_keberangkatan'))->get();
+        $data = keberangkatan::where('id_keberangkatan', $request->input('id_keberangkatan'))->get()
+                                ->map(function ($Keberangkatan) {
+                                    $Keberangkatan->tgl_berangkat = date("d-m-Y", strtotime($Keberangkatan->tgl_berangkat));
+                                    $Keberangkatan->tgl_pulang = date("d-m-Y", strtotime( $Keberangkatan->tgl_pulang));;
+
+                                    return $Keberangkatan;
+                                });
         return response()->json($data);
     }
 
@@ -53,8 +66,8 @@ class KeberangkatanController extends Controller
 
         $this->validation($request);
 
-        $keberangkatan->tgl_berangkat = $request->input('tgl_berangkat');
-        $keberangkatan->tgl_pulang = $request->input('tgl_pulang');
+        $keberangkatan->tgl_berangkat = date("Y-m-d", strtotime($request->input('tgl_berangkat')));
+        $keberangkatan->tgl_pulang = date("Y-m-d", strtotime($request->input('tgl_pulang')));
 
         $exec = $keberangkatan->save();
 
@@ -70,8 +83,8 @@ class KeberangkatanController extends Controller
 
         $this->validation($request);
 
-        $keberangkatan->tgl_berangkat = $request->input('tgl_berangkat');
-        $keberangkatan->tgl_pulang = $request->input('tgl_pulang');
+        $keberangkatan->tgl_berangkat = date("Y-m-d", strtotime($request->input('tgl_berangkat')));
+        $keberangkatan->tgl_pulang = date("Y-m-d", strtotime($request->input('tgl_pulang')));
 
         $exec = $keberangkatan->save();
 
