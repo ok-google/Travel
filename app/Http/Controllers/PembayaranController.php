@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\pembayaran;
 
 class PembayaranController extends Controller
 {
      public function index()
     {
-        return view('Master.pembayaran.index');
+        return view('Transaksi.pembayaran.index');
     }
 
     public function all()

@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\booking;
 
 class BookingController extends Controller
 {
      public function index()
     {
-        return view('Master.booking.index');
+        return view('Transaksi.booking.index');
     }
 
     public function all()

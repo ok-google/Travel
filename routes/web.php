@@ -43,3 +43,35 @@ Route::GET('/keberangkatan/browse', 'KeberangkatanController@all');
 Route::POST('/keberangkatan/insert', 'KeberangkatanController@insert');
 Route::POST('/keberangkatan/update', 'KeberangkatanController@update');
 Route::POST('/keberangkatan/delete', 'KeberangkatanController@delete');
+
+Route::GET('/customer', 'CustomerController@index')->name('customer.index');
+Route::GET('/customer/getall', 'CustomerController@all');
+Route::GET('/customer/getbyid', 'CustomerController@getById');
+Route::GET('/customer/browse', 'CustomerController@all');
+Route::POST('/customer/insert', 'CustomerController@insert');
+Route::POST('/customer/update', 'CustomerController@update');
+Route::POST('/customer/delete', 'CustomerController@delete');
+
+Route::GET('/paket', 'PaketController@index')->name('paket.index');
+Route::GET('/paket/getall', 'PaketController@all');
+Route::GET('/paket/getbyid', 'PaketController@getById');
+Route::GET('/paket/browse', 'PaketController@all');
+Route::POST('/paket/insert', 'PaketController@insert');
+Route::POST('/paket/update', 'PaketController@update');
+Route::POST('/paket/delete', 'PaketController@delete');
+
+Route::GET('/booking', 'BookingController@index')->name('booking.index');
+Route::GET('/booking/getall', 'BookingController@all');
+Route::GET('/booking/getbyid', 'BookingController@getById');
+Route::GET('/booking/browse', 'BookingController@all');
+Route::POST('/booking/insert', 'BookingController@insert');
+Route::POST('/booking/update', 'BookingController@update');
+Route::POST('/booking/delete', 'BookingController@delete');
+
+Route::GET('/pembayaran', 'PembayaranController@index')->name('pembayaran.index');
+Route::GET('/pembayaran/getall', 'PembayaranController@all');
+Route::GET('/pembayaran/getbyid', 'PembayaranController@getById');
+Route::GET('/pembayaran/browse', 'PembayaranController@all');
+Route::POST('/pembayaran/insert', 'PembayaranController@insert');
+Route::POST('/pembayaran/update', 'PembayaranController@update');
+Route::POST('/pembayaran/delete', 'PembayaranController@delete');

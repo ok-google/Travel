@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\customer;
+
 class CustomerController extends Controller
 {
      public function index()
@@ -13,15 +15,16 @@ class CustomerController extends Controller
 
     public function all()
     {
-        $data = customer::leftJoin('user', function($join){
-                    $join->on('user.id_user', '=', 'customer.id_user');
-                })->get([
-                    'customer.nama', 'customer.alamat', 'customer.no_hp', 'customer.email', 'hotel.jenis_kelamin', 'customer.tgl_lahir'
-                ])->map(function ($customer){
-                    $customer->harga = number_format($customer->harga, 2);
-
-                    return $customer;
-                });
+        $data = customer::get()
+                        ->map(function ($Customer) {
+                                    $Customer->tgl_lahir = date("d-m-Y", strtotime($Customer->tgl_lahir));
+                                    if($Customer->jenis_kelamin == 1){
+                                        $Customer->jenis_kelamin = 'Pria';
+                                    } else {
+                                        $Customer->jenis_kelamin = 'Wanita';
+                                    }
+                                    return $Customer;
+                                });
         return response()->json($data);
     }
 
@@ -46,7 +49,6 @@ class CustomerController extends Controller
         }
 
         $rules = [
-            'id_user' => 'required',
             'nama' => 'required',
             'alamat' => 'required',
             'no_hp' => 'required',
@@ -56,10 +58,9 @@ class CustomerController extends Controller
         ];
 
         $messages = [
-            'id_user.requires' => 'ID User harus di isi',
             'nama.required' => 'Nama customer harus di isi',
             'alamat.required' => 'Alamat Bed harus di isi',
-            'no_hp.required' => 'NO HP harus di isi.'
+            'no_hp.required' => 'NO HP harus di isi.',
             'email.required' => 'Email customer harus di isi',
             'jenis_kelamin.required' => 'Jenis Kelamin Bed harus di isi',
             'tgl_lahir.required' => 'Tanggal Lahir harus di isi.'
@@ -74,13 +75,13 @@ class CustomerController extends Controller
 
        $this->validation($request);
 
-        $customer->id_user = $request->input('id_user');
+        $customer->id_user = 0;
         $customer->nama = $request->input('nama');
         $customer->alamat = $request->input('alamat');
         $customer->no_hp = $request->input('no_hp');
         $customer->email = $request->input('email');
         $customer->jenis_kelamin = $request->input('jenis_kelamin');
-        $customer->tgl_lahir = $request->input('tgl_lahir');
+        $customer->tgl_lahir = date("Y-m-d", strtotime($request->input('tgl_lahir')));
 
         $exec = $customer->save();
 
@@ -96,13 +97,13 @@ class CustomerController extends Controller
 
         $this->validation($request);
 
-        $customer->id_user = $request->input('id_user');
+        $customer->id_user = 0;
         $customer->nama = $request->input('nama');
         $customer->alamat = $request->input('alamat');
         $customer->no_hp = $request->input('no_hp');
         $customer->email = $request->input('email');
         $customer->jenis_kelamin = $request->input('jenis_kelamin');
-        $customer->tgl_lahir = $request->input('tgl_lahir');
+        $customer->tgl_lahir = date("Y-m-d", strtotime($request->input('tgl_lahir')));
 
         $exec = $customer->save();
 

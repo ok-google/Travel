@@ -9,7 +9,7 @@ class PaketController extends Controller
 {
     public function index()
     {
-        return view('Master.paket.index');
+        return view('Transaksi.paket.index');
     }
 
     public function all()

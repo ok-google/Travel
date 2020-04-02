@@ -120,11 +120,21 @@
                         <li>
                             <a href="{{ route('kamar.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Kamar</span></a>
                         </li>
+                        <li>
+                            <a href="{{ route('customer.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Customer</span></a>
+                        </li>
 
                         <li class="nav-main-heading"><span class="sidebar-mini-visible">BD</span><span class="sidebar-mini-hidden">Transaksi</span></li>
                         <li>
-                            <a href="{{ route('penerbangan.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Paket</span></a>
+                            <a href="{{ route('paket.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Paket</span></a>
                         </li>
+                        <li>
+                            <a href="{{ route('booking.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Booking</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pembayaran.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Pembayaran</span></a>
+                        </li>
+                        
                     </ul>
                 </div>
                 <!-- END Side Navigation -->
