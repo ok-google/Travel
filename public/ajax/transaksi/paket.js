@@ -272,4 +272,27 @@ $( document ).ready(function(){
             $('#Validate').text("");
             $('#input-modal').modal('hide');
         });
+
+        $('#btnTambahDetail').click(function(){
+           var html =
+           ' <div class="form-group row"> ' +
+           '     <div class="col-6"> ' +
+           '         <div class="form-material floating"> ' +
+           '             <input type="text" class="js-flatpickr form-control" id="tgl_berangkat" name="tgl_berangkat" data-allow-input="true" data-date-format="d-m-Y"> ' +
+           '             <label for="material-text2">Tanggal Berangkat</label> ' +
+           '         </div> ' +
+           '     </div> ' +
+           '     <div class="col-6"> ' +
+           '         <div class="form-material floating"> ' +
+           '             <input type="text" class="js-flatpickr form-control" id="tgl_pulang" name="tgl_pulang" data-allow-input="true" data-date-format="d-m-Y"> ' +
+           '             <label for="material-text2">Tanggal Pulang</label> ' +
+           '         </div> ' +
+           '     </div> ' +
+           ' </div> ';
+
+            $('#Details').append(html);
+
+            $('#tgl_berangkat').flatpickr();
+            $('#tgl_pulang').flatpickr();
+        });
     });

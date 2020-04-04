@@ -134,7 +134,7 @@
                         <li>
                             <a href="{{ route('pembayaran.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Pembayaran</span></a>
                         </li>
-                        
+
                     </ul>
                 </div>
                 <!-- END Side Navigation -->
@@ -281,6 +281,7 @@
     <script src="{{ asset('assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/flatpickr/flatpickr.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js') }}"></script>
 
     @yield('customJS')
 
