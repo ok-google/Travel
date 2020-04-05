@@ -134,6 +134,9 @@
                         <li>
                             <a href="{{ route('pembayaran.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Pembayaran</span></a>
                         </li>
+                         <li>
+                            <a href="{{ route('pembayaran.index') }}"><i class="si si-cup"></i><span class="sidebar-mini-hide">Report</span></a>
+                        </li>
 
                     </ul>
                 </div>

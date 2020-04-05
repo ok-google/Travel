@@ -40,6 +40,7 @@ function getById(id){
         success: function(result){
             $('#id_paket').val(result[0]['id_paket']);
 
+            getHotel(result[0]['id_hotel']);
 
             $('#nama_paket').val(result[0]['nama_paket']);
             if (result[0]['nama'] != '') {
@@ -72,6 +73,72 @@ function getById(id){
             $('#aktif').prop('checked', result[0]['aktif'] == 1 ? true : false);
 
            // $('#aktif').prop('checked', result[0]['aktif'] == 1 ? true : false);
+        }
+    });
+}
+
+function getHotel(select){
+    $.ajax({
+        url: $('#uri').val() + "hotel/browse",
+        method: 'GET',
+
+        success: function(result){
+            $("#id_hotel").empty();
+
+            $('#id_hotel').select2({
+                placeholder: '-- Pilih Satu --',
+                allowClear: true
+            });
+
+            var newOption = new Option('-- Pilih Satu --', 0, true, true);
+            $('#id_hotel').append(newOption).trigger('change');
+
+            $.each(result, function(index) {
+
+                var id = result[index]['id_hotel'];
+
+                if(select == id){
+                    var newOption = new Option(result[index]['nama_hotel'], id, true, true);
+                } else {
+                    var newOption = new Option(result[index]['nama_hotel'], id, false, false);
+                }
+
+
+                $('#id_hotel').append(newOption).trigger('change');
+            });
+        }
+    });
+}
+
+function getKamar(select){
+    $.ajax({
+        url: $('#uri').val() + "hotel/browse",
+        method: 'GET',
+
+        success: function(result){
+            $("#id_hotel").empty();
+
+            $('#id_hotel').select2({
+                placeholder: '-- Pilih Satu --',
+                allowClear: true
+            });
+
+            var newOption = new Option('-- Pilih Satu --', 0, true, true);
+            $('#id_hotel').append(newOption).trigger('change');
+
+            $.each(result, function(index) {
+
+                var id = result[index]['id_hotel'];
+
+                if(select == id){
+                    var newOption = new Option(result[index]['nama_hotel'], id, true, true);
+                } else {
+                    var newOption = new Option(result[index]['nama_hotel'], id, false, false);
+                }
+
+
+                $('#id_hotel').append(newOption).trigger('change');
+            });
         }
     });
 }
@@ -198,6 +265,8 @@ $( document ).ready(function(){
                 $('#input-modal .block-title').text('Tambah Paket');
                 //$('#kode_paket').removeAttr("readonly", "");
             }
+
+            getHotel(0);
 
             $('#nama_paket').closest('.floating').removeClass('open');
             $('#kategori_paket').closest('.floating').removeClass('open');

@@ -67,19 +67,55 @@
                                     <div class="form-group">
                                         <div class="form-material floating">
                                             <input class="form-control" type="text" id="wizard-progress2-firstname" name="wizard-progress2-firstname">
-                                            <label for="wizard-progress2-firstname">First Name</label>
+                                            <label for="wizard-progress2-firstname">Nama Paket</label>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="form-material floating">
                                             <input class="form-control" type="text" id="wizard-progress2-lastname" name="wizard-progress2-lastname">
-                                            <label for="wizard-progress2-lastname">Last Name</label>
+                                            <label for="wizard-progress2-lastname">Kategori Paket</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <div class="form-material">
+                                                <select class="js-select2 form-control" id="id_hotel" name="id_hotel" style="width: 100%;" data-placeholder="Pilih satu..">
+                                                    <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                                </select>
+                                                <label for="example2-select2">Hotel</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <div class="form-material">
+                                                <select class="js-select2 form-control" id="id_kamar" name="id_kamar" style="width: 100%;" data-placeholder="Pilih satu..">
+                                                    <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                                </select>
+                                                <label for="example2-select2">Kamar</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <div class="form-material">
+                                                <select class="js-select2 form-control" id="id_penerbangan" name="id_penerbangan" style="width: 100%;" data-placeholder="Pilih satu..">
+                                                    <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+                                                </select>
+                                                <label for="example2-select2">Penerbangan</label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="form-material floating">
-                                            <input class="form-control" type="email" id="wizard-progress2-email" name="wizard-progress2-email">
-                                            <label for="wizard-progress2-email">Email</label>
+                                            <input class="form-control" type="text" id="wizard-progress2-lastname" name="wizard-progress2-lastname">
+                                            <label for="wizard-progress2-lastname">Harga</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-material floating">
+                                            <input class="form-control" type="text" id="wizard-progress2-lastname" name="wizard-progress2-lastname">
+                                            <label for="wizard-progress2-lastname">Durasi</label>
                                         </div>
                                     </div>
                                 </div>
